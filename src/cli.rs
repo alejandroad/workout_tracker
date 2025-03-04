@@ -36,19 +36,22 @@ pub fn print_help() {
 
 pub fn log_workout() {
     let mut input = String::new();
-    let mut exercise_name = String::new();
-    let mut weight = String::new();
-    let mut sets = String::new();
-    let mut reps = String::new();
-    let mut perceived_effort = String::new();
-    let mut date = String::new();
-    let mut description = String::new();
 
-    println!("$ Please input exercise_name <reps> <sets> <percieved_effort> <description>");
+    print!("$ Enter the exercise Name: ");
     stdout().flush().unwrap();
-
-    input.clear();
     stdin().read_line(&mut input).expect("Error reading input");
+    let exercise_name = input.trim().to_string();
+    input.clear();
+
+    print!("$ Enter reps, sets, and weight (space-separated): ");
+    stdout().flush().unwrap();
+    stdin().read_line(&mut input).expect("Error reading input");
+    let parts: Vec<&str> = input.trim().split_whitespace().collect();
+
+    if parts.len() != 3 {
+        println!("Error: Please enter exactly three numbers (reps sets weight).");
+        return;
+    }
 }
 
 pub fn view_workout() {
