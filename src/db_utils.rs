@@ -15,7 +15,7 @@ pub fn connect_to_db() -> Result<Connection> {
             sets INTEGER NOT NULL,
             reps INTEGER NOT NULL,
             perceived_effort INTEGER NOT NULL,
-            date TEXT NOT NULL UNIQUE, 
+            date TEXT NOT NULL, 
             description TEXT
         )",
         [],
